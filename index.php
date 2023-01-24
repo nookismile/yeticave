@@ -51,6 +51,14 @@ $goods = [
     ]
 ];
 
+function format_sum($sum) {
+    $sum = ceil($sum);
+    if ($sum >= 1000) {
+       $sum = number_format($sum, 0, '', ' ');
+    }
+    return $sum ." " ."₽";
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -128,7 +136,7 @@ $goods = [
                         <div class="lot__state">
                             <div class="lot__rate">
                                 <span class="lot__amount">Стартовая цена</span>
-                                <span class="lot__cost"><?= $good['price'] ?><b class="rub">р</b></span>
+                                <span class="lot__cost"><?= format_sum($good['price'])?></span>
                             </div>
                             <div class="lot__timer timer">
                                 12:23
